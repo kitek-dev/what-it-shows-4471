@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>#4471 · three problems, not one</title></head>
+<body><main>
+<h1>#4471 · three problems, not one</h1>
+<p>#4471 merged <strong>412 reports</strong> as one known bug. They are three problems.</p>
+<aside class="note">Not one ticket. Three issues: parser (fixed), form hint (won't fix), one-day shift (open).</aside>
+<h2>What was merged</h2>
+<p class="sum"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p>
+<table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody>
+<tr><td><code>parser</code></td><td>379</td><td class="tags">parser ×356 · hint ×23</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td>#4471</td></tr>
+<tr class="wrong"><td><code>hint</code></td><td>33</td><td class="tags">hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td>not this ticket — no ticket of its own</td></tr>
+</tbody></table>
+<p class="note">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p>
+<h2>The problems</h2>
+<ol>
+<li><strong>Parser reads dates month first: 374 reports.</strong> The shared parser reads every date month first. Day-first tenants (11) get flipped dates. Fixed: <code>parse dd/mm for eu locales</code>. Issue 1.</li>
+<li><strong>booking-v3 form hint: 33 reports.</strong> On the form channel, copper.studio, alder.physio and pale.harbour see <code>MM/DD/YYYY</code> under the date field, so people type month first. Won't fix: the booking-v3 form was retired. Issue 2.</li>
+<li><strong>One-day shift: 5 reports</strong> (R-41202, R-41209, R-41236, R-41344, R-41620). The bodies describe a day moving, not a month flip, so the dd/mm fix does not cover them. The desk notes (<code>oneDayMove</code>) list them. Open. Issue 3.</li>
+</ol>
+<p>The intake tag is a guess: 15 reports tagged <code>parser</code> belong to the hint problem, and 23 tagged <code>hint</code> belong to the parser problem.</p>
+<h2>Lessons</h2>
+<ul>
+<li>Group by tenant locale and form, not by the intake tag.</li>
+<li>A merged ticket can hold more than one bug. Count each once.</li>
+<li>A fix for one problem does not close the others.</li>
+</ul>
+<p class="stamp">desk ref <b>DR-7MTQ-YPED</b></p>
+</main></body></html>

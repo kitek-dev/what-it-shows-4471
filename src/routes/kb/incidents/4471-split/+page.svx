@@ -34,7 +34,7 @@ Not one ticket. Three issues: parser (fixed), form hint (won't fix), one-day shi
    describe a day moving, not a month flip, so the dd/mm fix does not cover them. The desk notes
    (`oneDayMove`) list them. Open. Issue 3.
 
-The intake tag is a guess: 23 of the reports tagged `parser` belong to the hint problem.
+The intake tag is a guess: 15 reports tagged `parser` belong to the hint problem, and 23 tagged `hint` belong to the parser problem.
 
 ## Lessons
 
