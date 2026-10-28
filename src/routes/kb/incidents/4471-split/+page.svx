@@ -1,0 +1,42 @@
+---
+layout: runbook
+title: '#4471 · two problems, not one'
+owner: support desk
+status: split
+reviewed: 2026-10-28
+signature: v1.eyJzdWIiOiI0NjkxIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTQxMjcsImV4cCI6MTc5MzMwMDUyN30.iUug2D_-B20q42_TA4xFdpTktfzXi75yN0K2te-Cvqs
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+#4471 merged **412 reports** as one known bug. They are two problems with two fixes.
+
+<Callout>
+Not one ticket. Two issues: parser and form hint.
+</Callout>
+
+## What was merged
+
+<CauseTable ticket={4471} />
+
+## The problems
+
+1. **Parser reads dates month first: 379 reports.** The shared parser reads every date month
+   first. Day-first tenants (11) get flipped dates. Issue 1 in `kitek-dev/what-it-shows-4471`.
+   Five of these (R-41202, R-41209, R-41236, R-41344, R-41620) describe a one-day shift, not a
+   month flip. The desk notes record them, and they stay counted here.
+2. **booking-v3 form hint: 33 reports.** On the form channel, copper.studio, alder.physio and
+   pale.harbour see `MM/DD/YYYY` under the date field, so people type month first. Issue 2.
+
+The intake tag is a guess: 23 of the reports tagged `parser` belong to the hint problem.
+
+## Lessons
+
+- Group by tenant locale and form, not by the intake tag.
+- A merged ticket can hold more than one bug. Count each once.
+
+<RenderStamp {signature} />
